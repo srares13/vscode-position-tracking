@@ -35,14 +35,24 @@ const { getUpdatedRanges } = require('vscode-range-tracking')
 vscode.workspace.onDidChangeTextDocument((event) => {
 
    const updatedRanges = getUpdatedRanges(
-		someRanges, // The locations you want the update for, under the form of an array of ranges. It is a required argument.
-		event.contentChanges, // Array of document changes. It is a required argument.
+		// The locations you want the update for,
+		// under the form of an array of ranges.
+		// It is a required argument.
+		someRanges,
+		// Array of document changes.
+		// It is a required argument.
+		event.contentChanges,
+		// An object with various options.
+		// It is not a required argument.
 		{ 
 			onDeletion: 'remove',
 			onAddition: 'split',
 			outputChannel: extensionOutputChannel
-		} // An object with various options. It is not a required argument.
-	) // The function returns the updated locations according to document changes under the form of a new array of ranges.
+		}
+	) 
+	// The function returns the updated locations
+	// according to document changes
+	// under the form of a new array of ranges.
 })
 ```
 
