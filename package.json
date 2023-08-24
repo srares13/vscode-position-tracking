@@ -1,8 +1,8 @@
 {
    "name": "vscode-range-tracking",
-   "version": "1.0.0",
-   "description": "You give it ranges, and it gives back the updated ranges accroding to document changes.",
-   "main": "index.js",
+   "version": "0.1.0",
+   "description": "Give it a location in the document, and it gives back the updated location accroding to document changes.",
+   "main": "bundle/index.js",
    "repository": {
       "type": "git",
       "url": "https://github.com/srares13/vscode-range-tracking.git"
@@ -15,12 +15,22 @@
    ],
    "author": "srares13",
    "license": "MIT",
+   "files": [
+      "bundle/index.js",
+      "CHANGELOG.md",
+      "LICENSE",
+      "package.json",
+      "README.md",
+      "index.d.ts"
+   ],
+   "types": "index.d.ts",
    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "bundle": "node ./esbuild.js"
    },
    "devDependencies": {
-      "esbuild": "~0.18.17",
-      "eslint": "~8.36.0",
-      "prettier": "~2.8.8"
+      "esbuild": "^0.18.17",
+      "eslint": "^8.36.0",
+      "prettier": "^2.8.8"
    }
 }

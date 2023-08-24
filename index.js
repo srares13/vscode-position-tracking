@@ -51,17 +51,22 @@ const updatePositionDueToInsertion = (line, character, change) => {
 }
 
 /**
- * @param {vscode.TextDocumentContentChangeEvent[]} changes
  * @param {vscode.Range[]} ranges
+ * @param {vscode.TextDocumentContentChangeEvent[]} changes
  * @param {Object} options
  * @param {vscode.OutputChannel} options.outputChannel
  */
-const getUpdatedRanges = (changes, ranges, { outputChannel }) => {
+const getUpdatedRanges = (ranges, changes, options) => {
    const toUpdateRanges = [...ranges]
 
    const sortedChanges = [...changes].sort((change1, change2) =>
       change2.range.start.compareTo(change1.range.start)
    )
+
+   let outputChannel = undefined
+   if (options) {
+      ;({ outputChannel } = options)
+   }
 
    outputChannel && debugLoggingOnExtensionChannel(sortedChanges, toUpdateRanges, outputChannel)
 
@@ -108,6 +113,7 @@ const getUpdatedRanges = (changes, ranges, { outputChannel }) => {
 
             const newRangeStart = new vscode.Position(newRangeStartLine, newRangeStartCharacter)
 
+            // once the start position is calculated, we can infer the end position
             const lineDelta = toUpdateRanges[i].end.line - toUpdateRanges[i].start.line
             const characterDelta =
                toUpdateRanges[i].end.character - toUpdateRanges[i].start.character
@@ -124,6 +130,7 @@ const getUpdatedRanges = (changes, ranges, { outputChannel }) => {
                   newRangeStart.character + characterDelta
                )
             }
+            //
 
             toUpdateRanges[i] = new vscode.Range(newRangeStart, newRangeEnd)
          } else if (change.range.intersection(toUpdateRanges[i])) {

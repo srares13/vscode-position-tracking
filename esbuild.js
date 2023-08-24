@@ -2,16 +2,14 @@ const esbuild = require('esbuild')
 
 esbuild
    .build({
-      entryPoints: ['extension.js'],
+      entryPoints: ['index.js'],
       bundle: true,
+      minify: true,
       platform: 'node',
-      target: ['node14'],
-      outfile: 'bundle/extension.js',
+      target: ['node16'],
+      outfile: 'bundle/index.js',
       external: ['vscode'],
       format: 'cjs',
-      loader: {
-         '.md': 'text'
-      },
       sourcemap: true
    })
    .catch(() => process.exit(1))

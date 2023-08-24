@@ -5,5 +5,13 @@ module.exports = {
    singleQuote: true,
    trailingComma: 'none',
    quoteProps: 'preserve',
-   printWidth: 100
+   printWidth: 100,
+   overrides: [
+      {
+         files: 'README.md',
+         options: {
+            printWidth: 80
+         }
+      }
+   ]
 }
