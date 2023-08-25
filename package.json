@@ -1,7 +1,7 @@
 {
    "name": "vscode-range-tracking",
    "version": "0.1.0",
-   "description": "Give it a location in the document, and it gives back the updated location accroding to document changes.",
+   "description": "Give a location in the document, and it gives back the updated location accroding to document changes.",
    "main": "bundle/index.js",
    "repository": {
       "type": "git",
