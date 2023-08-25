@@ -38,21 +38,21 @@ const { getUpdatedRanges } = require('vscode-range-tracking')
 vscode.workspace.onDidChangeTextDocument((event) => {
 
    const updatedRanges = getUpdatedRanges(
-		// The locations you want to update,
-		// under the form of an array of ranges.
-		// It is a required argument.
-		someRanges,
-		// Array of document changes.
-		// It is a required argument.
-		event.contentChanges,
-		// An object with various options.
-		// It is not a required argument.
-		{ 
-			onDeletion: 'remove',
-			onAddition: 'split',
-			outputChannel: extensionOutputChannel
-		}
-	) 
+      // The locations you want to update,
+      // under the form of an array of ranges.
+      // It is a required argument.
+      someRanges,
+      // Array of document changes.
+      // It is a required argument.
+      event.contentChanges,
+      // An object with various options.
+      // It is not a required argument.
+      { 
+         onDeletion: 'remove',
+         onAddition: 'split',
+         outputChannel: extensionOutputChannel
+      }
+   ) 
 	// The function returns the updated locations
 	// according to document changes,
 	// under the form of a new array of ranges.
@@ -95,7 +95,7 @@ Available settings:
 	- **Note:**  The updated ranges are the ones that the library calculated.
 	- **Values:**
 		- ```true``` | ```false```
-	- **Default value:** ```undefined``` which is a falsy value. In the library's code it will have the same effect as ```false```.
+	- **Default value:** ```false```
 
 <br>
 
@@ -124,10 +124,10 @@ getUpdatedRanges(
    ranges: vscode.Range[],
    changes: vscode.TextDocumentContentChangeEvent[],
    options?: {
-		onDeletion?: 'remove'|'shrink',
-		onAddition?: 'remove'|'extend'|'split',
-		debugConsole?: boolean,
-		outputChannel?: vscode.OutputChannel
+      onDeletion?: 'remove'|'shrink',
+      onAddition?: 'remove'|'extend'|'split',
+      debugConsole?: boolean,
+      outputChannel?: vscode.OutputChannel
    }
 ): vscode.Range[]
 ```
