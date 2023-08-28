@@ -123,7 +123,9 @@ The options object is not a required argument, nor any of its options.
 	
 		[Debug logs example](https://drive.google.com/file/d/15jn8KgiYN9JcnVbSgmdnui5lAJ4rr9EM/view?usp=sharing)
 
-	- **Note:**  The updated ranges are the ones that the library calculated.
+	- **Note 1:** The updated ranges are the ones that the library calculated.
+
+	- **Note 2:** Try and not do logs on the debug console of the development window. From my testing, logging to the debug console creates a lag, the ranges wont be updated in real time.
 
 	- **Values:**
 
@@ -171,4 +173,4 @@ You can use the [Issues](https://github.com/srares13/vscode-position-tracking/is
 
 Passing a vscode.OutputChannel object to the ```outputChannel``` option will help in gathering some of the data: document change ranges, to update ranges, and updated ranges.
 
-In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
+In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges. 
