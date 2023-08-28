@@ -1,11 +1,11 @@
 {
    "name": "vscode-position-tracking",
    "version": "0.1.0",
-   "description": "Give it a location in the document, and it gives back the updated location accroding to document changes.",
+   "description": "Give it a location in the document, and it gives back the updated location according to document changes.",
    "main": "bundle/index.js",
    "repository": {
       "type": "git",
-      "url": "https://github.com/srares13/vscode-range-tracking.git"
+      "url": "https://github.com/srares13/vscode-position-tracking.git"
    },
    "keywords": [
       "vscode",
