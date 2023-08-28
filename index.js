@@ -254,7 +254,7 @@ const getUpdatedRanges = (ranges, changes, options) => {
 
    const updatedRanges = toUpdateRanges.filter((range) => range)
 
-   debugConsole && debugLogsOnDebugConsole(sortedChanges, ranges, updatedRanges)
+   // debugConsole && debugLogsOnDebugConsole(sortedChanges, ranges, updatedRanges)
    outputChannel && debugLogsOnExtensionChannel(sortedChanges, ranges, updatedRanges, outputChannel)
 
    return updatedRanges

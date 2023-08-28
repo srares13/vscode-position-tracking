@@ -47,7 +47,7 @@ vscode.workspace.onDidChangeTextDocument((event) => {
       event.contentChanges,
       // An object with various options.
       // It is not a required argument,
-      // nor any of its settings.
+      // nor any of its options.
       { 
          onDeletion: 'remove',
          onAddition: 'split',
@@ -63,9 +63,9 @@ vscode.workspace.onDidChangeTextDocument((event) => {
 <br>
 
 ### Options object
-The options object is not a required argument, nor any of its settings.
+The options object is not a required argument, nor any of its options.
 
-Available settings:
+**Available options:**
 
 - ```onDeletion```
 
@@ -117,27 +117,13 @@ Available settings:
 
 <br>
 
-- ```debugConsole```
+- ```outputChannel```
 
-	- It enables logs on the debug console. For each onDidChangeTextDocument event it will log document change ranges, to update ranges, and updated ranges.
-
+	- It shows logs for debug purposes. For each onDidChangeTextDocument event it will log document change ranges, to update ranges, and updated ranges. The logs are shown on the terminal's output tab in the extension host window / end user window.
+	
 		[Debug logs example](https://drive.google.com/file/d/15jn8KgiYN9JcnVbSgmdnui5lAJ4rr9EM/view?usp=sharing)
 
 	- **Note:**  The updated ranges are the ones that the library calculated.
-
-	- **Values:**
-
-		- ```true``` | ```false```
-		
-		<br>
-
-	- **Default value:** ```false```
-
-<br>
-
-- ```outputChannel```
-
-	- It has the same effect as ```debugConsole``` option, but the logs will be shown on the terminal's output tab in the extension host window / end user window. This only if an output channel is provided.
 
 	- **Values:**
 
@@ -168,7 +154,6 @@ getUpdatedRanges(
    options?: {
       onDeletion?: 'remove'|'shrink',
       onAddition?: 'remove'|'extend'|'split',
-      debugConsole?: boolean,
       outputChannel?: vscode.OutputChannel
    }
 ): vscode.Range[]
@@ -180,6 +165,6 @@ getUpdatedRanges(
 
 You can use the [Issues](https://github.com/srares13/vscode-position-tracking/issues) tab of the library's repository for any questions, suggestions and problems you have.
 
-#### If the library calculates the wrong updated location:
+**If the library calculates the wrong updated location:**
 
-Enabling the ```debugConsole``` and ```outputChannel``` options will help in gathering some of the data: document change ranges, to update ranges, and updated ranges. In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
+Passing a vscode.OutputChannel object to the ```outputChannel``` option will help in gathering some of the data: document change ranges, to update ranges, and updated ranges. In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
