@@ -120,7 +120,7 @@ Available settings:
 
 	- It enables or disables logs on the debug console. For each onDidChangeTextDocument event it will log document change ranges, to update ranges, and updated ranges.
 
-		![Debug logs preview](https://drive.google.com/file/d/15jn8KgiYN9JcnVbSgmdnui5lAJ4rr9EM/view?usp=sharing)
+		[Debug logs preview](https://drive.google.com/file/d/15jn8KgiYN9JcnVbSgmdnui5lAJ4rr9EM/view?usp=sharing)
 
 	- **Note:**  The updated ranges are the ones that the library calculated.
 
