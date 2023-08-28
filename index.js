@@ -5,7 +5,7 @@ const vscode = require('vscode')
  * @param {vscode.Range[]} toUpdateRanges
  * @param {vscode.Range[]} updatedRanges
  */
-const debugLoggingOnDebugConsole = (changes, toUpdateRanges, updatedRanges) => {
+const debugLogsOnDebugConsole = (changes, toUpdateRanges, updatedRanges) => {
    console.log(`-------------------`)
    console.log(`-------------------`)
 
@@ -37,7 +37,7 @@ const debugLoggingOnDebugConsole = (changes, toUpdateRanges, updatedRanges) => {
  * @param {vscode.Range[]} updatedRanges
  * @param {vscode.OutputChannel} outputChannel
  */
-const debugLoggingOnExtensionChannel = (changes, toUpdateRanges, updatedRanges, outputChannel) => {
+const debugLogsOnExtensionChannel = (changes, toUpdateRanges, updatedRanges, outputChannel) => {
    outputChannel.appendLine(`-------------------`)
    outputChannel.appendLine(`-------------------`)
 
@@ -254,9 +254,8 @@ const getUpdatedRanges = (ranges, changes, options) => {
 
    const updatedRanges = toUpdateRanges.filter((range) => range)
 
-   debugConsole && debugLoggingOnDebugConsole(sortedChanges, ranges, updatedRanges)
-   outputChannel &&
-      debugLoggingOnExtensionChannel(sortedChanges, ranges, updatedRanges, outputChannel)
+   debugConsole && debugLogsOnDebugConsole(sortedChanges, ranges, updatedRanges)
+   outputChannel && debugLogsOnExtensionChannel(sortedChanges, ranges, updatedRanges, outputChannel)
 
    return updatedRanges
 }

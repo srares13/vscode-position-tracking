@@ -5,7 +5,7 @@ If you have some location in the document of which you want to know what would b
 ### Important: 
 It is an experimental library. It requires further testing regarding its ability to effectively update the wanted location.
 
-Here if you wish, is where you could help and provide situations in which the updated location is not correct. There are debug loggings which can aid you with this, if you enable them. You will see more details about this below.
+Here if you wish, is where you could help and provide situations in which the updated location is not correct. There are debug loggings which can aid you with this. You will see more details about this below.
 
 <br>
 
@@ -38,7 +38,7 @@ const { getUpdatedRanges } = require('vscode-position-tracking')
 vscode.workspace.onDidChangeTextDocument((event) => {
 
    const updatedRanges = getUpdatedRanges(
-      // The locations you want to update
+      // The locations you want to update,
       // under the form of an array of ranges.
       // It is a required argument.
       someRanges,
@@ -46,7 +46,8 @@ vscode.workspace.onDidChangeTextDocument((event) => {
       // It is a required argument.
       event.contentChanges,
       // An object with various options.
-      // It is not a required argument.
+      // It is not a required argument,
+      // nor any of its settings.
       { 
          onDeletion: 'remove',
          onAddition: 'split',
@@ -62,7 +63,7 @@ vscode.workspace.onDidChangeTextDocument((event) => {
 <br>
 
 ### Options object
-The options object is not a required argument.
+The options object is not a required argument, nor any of its settings.
 
 Available settings:
 
@@ -118,9 +119,9 @@ Available settings:
 
 - ```debugConsole```
 
-	- It enables or disables logs on the debug console. For each onDidChangeTextDocument event it will log document change ranges, to update ranges, and updated ranges.
+	- It enables logs on the debug console. For each onDidChangeTextDocument event it will log document change ranges, to update ranges, and updated ranges.
 
-		[Debug logs preview](https://drive.google.com/file/d/15jn8KgiYN9JcnVbSgmdnui5lAJ4rr9EM/view?usp=sharing)
+		[Debug logs example](https://drive.google.com/file/d/15jn8KgiYN9JcnVbSgmdnui5lAJ4rr9EM/view?usp=sharing)
 
 	- **Note:**  The updated ranges are the ones that the library calculated.
 
@@ -150,7 +151,7 @@ Available settings:
 	
 ### Return value
 
-- The updated ranges are in the same order as the ones that you want to update.
+- The updated ranges from the returned array are in the same order as the ones from the array of ranges that you want to update.
 
 - In the case of having the ```onAddition``` option set to ```'split'```, the new split ranges will be positioned in the returned array in the order they appear in document and from the position of the original range that was split. Example: toUpdateRanges = [A, B, C], if B was split into two ranges, the returned array will be [updatedA, D, E, updatedC].
 
@@ -177,10 +178,8 @@ getUpdatedRanges(
 
 ## Feedback
 
-You can use the Issues tab of the library's repository for any questions, suggestions and issues you have.
+You can use the [Issues](https://github.com/srares13/vscode-position-tracking/issues) tab of the library's repository for any questions, suggestions and problems you have.
 
-#### If it gets the wrong updated location
+#### If the library calculates the wrong updated location:
 
-- Enabling the ```debugConsole``` and ```outputChannel``` options will help in gathering some of the data: document change ranges, to update ranges, and updated ranges.
-
-- In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
+Enabling the ```debugConsole``` and ```outputChannel``` options will help in gathering some of the data: document change ranges, to update ranges, and updated ranges. In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
