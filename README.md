@@ -139,7 +139,9 @@ The options object is not a required argument, nor any of its options.
 
 - The updated ranges from the returned array are in the same order as the ones from the array of ranges that you want to update.
 
-- In the case of having the ```onAddition``` option set to ```'split'```, the new split ranges will be positioned in the returned array in the order they appear in document and from the position of the original range that was split. Example: toUpdateRanges = [A, B, C], if B was split into two ranges, the returned array will be [updatedA, D, E, updatedC].
+- In the case of having the ```onAddition``` option set to ```'split'```, the new split ranges will be positioned in the returned array in the order they appear in document and from the position of the original range that was split.
+
+	Example: toUpdateRanges = [A, B, C], if B was split into two ranges, the returned array will be [updatedA, D, E, updatedC].
 
 
 
@@ -167,4 +169,6 @@ You can use the [Issues](https://github.com/srares13/vscode-position-tracking/is
 
 **If the library calculates the wrong updated location:**
 
-Passing a vscode.OutputChannel object to the ```outputChannel``` option will help in gathering some of the data: document change ranges, to update ranges, and updated ranges. In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
+Passing a vscode.OutputChannel object to the ```outputChannel``` option will help in gathering some of the data: document change ranges, to update ranges, and updated ranges.
+
+In this case, the updated ranges from the logs will be the wrong ones. So what else should be provided in the opened issue will be the correct updated ranges.
